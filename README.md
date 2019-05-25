@@ -1,1 +1,1 @@
-# SCF-AuthorizationMS
+# Spring Security Oauth2
