@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: authorization-oauth2
+  cloud:
+    discovery:
+      enabled: true
+    config:
+      uri: someurl
+      username: user
+      password: password
+    consul:
+      enabled: true
+      host: 127.0.0.1
+      port: 8500
+      discovery:
+        prefer-ip-address: true
+        enabled: true
+        register: true
+        heartbeat:
+          enabled: true
+        instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${server.port}}}
+        healthCheckPath: /health
+        healthCheckInterval: 5s
+
+
+endpoints:
+    web:
+      exposure:
+        include: "*"
+      base-path: /actuator/
